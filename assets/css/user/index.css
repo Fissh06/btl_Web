@@ -1,0 +1,178 @@
+/* CSS header */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out; /* Tạo hiệu ứng trượt mượt */
+}
+
+/* Class này sẽ được JS thêm vào khi cuộn xuống */
+#header.hide {
+    transform: translateY(-100%); /* Đẩy Header lên trên 100% chiều cao của nó */
+}
+
+
+.nav-bar {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Bỏ gạch chân nếu có */
+}
+
+.logo img {
+    height: 100px; /* Thay đổi con số này cho vừa ý bạn */
+    width: auto;  /* Giữ đúng tỷ lệ ảnh không bị móp */
+    display: block; /* Tránh khoảng hở thừa phía dưới ảnh */
+}
+.left-nav-bar{
+    display: flex;
+    margin-left: 30px;
+}
+.nav-list-right {
+    list-style: none; /* Xóa dấu chấm đầu dòng */
+    margin-right: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Khoảng cách giữa các li */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+.search-container{
+    height: 120px;
+    align-content: center;
+}
+
+
+/* --- Phần tìm kiếm ẩn/hiện --- */
+/* Container chứa tìm kiếm */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    height: 45px;
+    width: 45px; /* Ban đầu chỉ bằng kích thước vòng tròn icon */
+    padding: 0 12px;
+    border-radius: 30px;
+    transition: width 0.4s ease, background-color 0.3s;
+    cursor: pointer;
+    overflow: hidden; /* Quan trọng: Giấu input khi chưa active */
+    justify-content: flex-end; /* Luôn giữ các thành phần ở bên phải container */
+}
+
+/* Khi bấm vào icon */
+.search-container.active {
+    width: 220px; /* Chỉ nở rộng về bên trái vì justify-content là flex-end */
+    justify-content: flex-end;
+    background-color: #444;
+    border: 1px solid #6a5acd;
+}
+
+#searchInput {
+    width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.2s;
+}
+
+.search-container.active #searchInput {
+    width: 100%; /* Chiếm toàn bộ không gian bên trái icon */
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.search-icon, .user-icon {
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+    width: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.search-icon:hover, .user-avatar:hover {
+    color: #6a5acd;
+}
+
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* Cùng màu với search-container */
+    color: white;
+    width: 45px;  /* Bằng chiều cao của search-container */
+    height: 45px; /* Bằng chiều cao của search-container */
+    border-radius: 50%; /* Bo tròn hoàn hảo */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px; /* Kích thước icon bên trong */
+}
+
+/* Hiệu ứng khi hover vào icon user */
+.user-avatar:hover {
+    background-color: #444;
+    color: #6a5acd; /* Đổi màu icon sang tím nhẹ giống search */
+}
+
+
+/*CSS Main-content  */
+#main-content{
+    height: 9000px;
+}
+
+
+
+
+
+
+
+
+/* CSS footer */
+#footer {
+    margin-top: 30px;
+    background-color: #1a1d23; /* Màu nền tối đặc trưng */
+    padding: 40px 30px;
+    position: relative;
+    color: #a0a0a0; /* Màu chữ xám nhẹ */
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 8px 0;
+}
+
+.privacy-policy {
+    color: #3498db; /* Màu xanh của link */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.privacy-policy:hover {
+    text-decoration: underline;
+}
