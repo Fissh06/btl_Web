@@ -1,0 +1,348 @@
+/* CSS header */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out; /* Tạo hiệu ứng trượt mượt */
+}
+
+/* Class này sẽ được JS thêm vào khi cuộn xuống */
+#header.hide {
+    transform: translateY(-100%); /* Đẩy Header lên trên 100% chiều cao của nó */
+}
+
+.nav-bar {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Bỏ gạch chân nếu có */
+}
+
+.logo img {
+    height: 100px; /* Thay đổi con số này cho vừa ý bạn */
+    width: auto;  /* Giữ đúng tỷ lệ ảnh không bị móp */
+    display: block; /* Tránh khoảng hở thừa phía dưới ảnh */
+}
+.left-nav-bar{
+    display: flex;
+    margin-left: 30px;
+}
+.nav-list-right {
+    list-style: none; /* Xóa dấu chấm đầu dòng */
+    margin-right: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Khoảng cách giữa các li */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- Phần tìm kiếm ẩn/hiện --- */
+/* Container chứa tìm kiếm */
+.search-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    height: 45px;
+    width: 45px; /* Ban đầu chỉ bằng kích thước vòng tròn icon */
+    padding: 0 12px;
+    border-radius: 30px;
+    transition: width 0.4s ease, background-color 0.3s;
+    cursor: pointer;
+    overflow: hidden; /* Quan trọng: Giấu input khi chưa active */
+    justify-content: flex-end; /* Luôn giữ các thành phần ở bên phải container */
+}
+
+/* Khi bấm vào icon */
+.search-container.active {
+    width: 220px; /* Chỉ nở rộng về bên trái vì justify-content là flex-end */
+    justify-content: flex-end;
+    background-color: #444;
+    border: 1px solid #6a5acd;
+}
+
+#searchInput {
+    width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.2s;
+}
+
+.search-container.active #searchInput {
+    width: 100%; /* Chiếm toàn bộ không gian bên trái icon */
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.search-icon, .user-icon {
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+    width: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.search-icon:hover, user-icon:hover {
+    color: #6a5acd;
+}
+
+/* header user */
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px; /* Khớp với chiều cao nav-bar để nội dung nằm giữa */
+}
+
+/* Vòng tròn Avatar */
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Hiệu ứng Hover */
+.user-avatar:hover{
+    background-color: #444;
+    transform: scale(1.05); /* Phóng to nhẹ khi hover cho sinh động */
+}
+.user-icon:hover {
+    color: #6a5acd;
+}
+
+
+/* CSS Popup cửa sổ user */
+.user-container {
+    position: relative; /* Để popup căn theo container này */
+}
+
+.user-popup {
+    position: absolute;
+    top: 84px; /* Hiện bên dưới avatar */
+    right: 0;
+    width: 250px;
+    background-color: #1a1d23;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    display: none; /* Mặc định ẩn */
+    z-index: 2000;
+    user-select: none;
+}
+
+.user-popup.active {
+    display: block;
+}
+
+.popup-header {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.user-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu-list li {
+    padding: 12px 15px;
+    color: #a0a0a0;
+    cursor: pointer;
+    transition: 0.3s;
+    border-bottom: 1px solid #252830;
+}
+
+.user-menu-list li:hover {
+    background-color: #252830;
+    color: #6a5acd;
+}
+
+.user-name-display {
+    color: #6a5acd !important;
+    font-weight: bold;
+    border-bottom: 2px solid #333 !important;
+}
+.modal-auth {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Nền đen mờ */
+    z-index: 9999;
+
+
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+/* CSS cho nội dung bên trong Modal */
+.modal-content {
+    background-color: #1a1d23;
+    width: 100%;
+    max-width: 400px; /* Độ rộng tối đa của form */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    position: relative;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/* Header của Modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    font-size: 24px;
+    cursor: pointer;
+    color: #a0a0a0;
+}
+
+.close-modal:hover {
+    color: #fff;
+}
+
+/* Form nhập liệu */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-body input {
+    padding: 12px;
+    background: #252830;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+}
+
+.modal-body input:focus {
+    border-color: #6a5acd;
+}
+
+/* Nút bấm */
+#btnSubmitAuth {
+    padding: 12px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btnSubmitAuth:hover {
+    background-color: #5a4dbd;
+}
+
+#authSwitchText {
+    text-align: center;
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+#authSwitchText a {
+    color: #6a5acd;
+    text-decoration: none;
+}
+/*CSS Main-content  */
+#main-content{
+    height: 9000px;
+    width: 900px;
+}
+
+
+
+
+
+
+
+
+/* CSS footer */
+
+#footer {
+    margin-top: 30px;
+    background-color: #000; 
+    padding: 40px 30px;
+    position: relative;
+    color: #a0a0a0; 
+    font-size: 14px;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+} 
+
+
+.footer-content {
+    max-width: 1200px;
+    margin-left: 170px;
+}
+
+.footer-content p {
+    margin: 8px 0;
+}
+
+.privacy-policy {
+    color: #3498db; /* Màu xanh của link */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.privacy-policy:hover {
+    text-decoration: underline;
+}
+
+.logo-footer{
+    height: 100px; 
+    width: auto;  /* Giữ đúng tỷ lệ ảnh không bị móp */
+    display: block; /* Tránh khoảng hở thừa phía dưới ảnh */
+    margin-right: 170px;
+}

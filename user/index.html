@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/user/index.css">
+    <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div class="nav-bar">
+                <div class="left-nav-bar">
+                    <div class="logo-web">
+                        <a href="index.html" class="logo">
+                            <img src="../assets/img/logo.png" alt="Truyện Hay">
+                        </a>
+                    </div>
+                </div>
+                <div class="right-nav-bar">
+                    <ul class="nav-list-right">
+                        <li class="nav-item">
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Tìm truyện...">
+                                <i class="search-icon ti-search" id="searchBtn"></i>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="user-container"  id="userBtn">
+                                <div class="user-avatar">
+                                    <i class="ti-user user-icon"></i>
+                                </div>
+                                <div id="userPopup" class="user-popup">
+                                    <div class="popup-header">
+                                        <span id="popupTitle">Tính Năng Tài Khoản</span>
+                                        <i class="ti-close" id="closePopup"></i>
+                                    </div>
+                                    <ul id="userMenuList" class="user-menu-list">
+                                        </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="main-content"></div>
+        <div id="footer">
+            <div class="footer-content">
+                <p class="copyright">Copyright © 2021 - Truyện Hay</p>
+                <p class="email">Email: <span class="email-address">contact@truyenhay.com</span></p>
+                <a href="#" class="privacy-policy">Privacy Policy</a>
+            </div>
+            <div class="footer-logo">
+                <img class="logo-footer" src="../assets/img/logo.png" alt="Truyện hay"></img>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Đây là html phần đăng ký đăng nhập -->
+    <div id="authModal" class="modal-auth">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <h2 id="authTitle">Đăng Nhập</h2>
+                <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="authUser" placeholder="Tên đăng nhập">
+                <input type="password" id="authPass" placeholder="Mật khẩu">
+                
+                <button id="btnSubmitAuth">Xác Nhận</button>
+                
+                <p id="authSwitchText">
+                    Chưa có tài khoản? <a href="#" onclick="switchMode('register')">Đăng ký ngay</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/index.js"></script>
+</body>
+</html>
