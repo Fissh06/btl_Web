@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Truyện Hay</title>
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/user/index.css">
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
@@ -19,12 +19,23 @@
                         </a>
                     </div>
                 </div>
+                <div class="center-nav-bar">
+                    <ul class="nav-main-menu">
+                        <li><a href="index.html" class="nav-link active">TRANG CHỦ</a></li>
+                        <li><a href="list.html" class="nav-link">DANH SÁCH</a></li>
+                        <li><a href="#" class="nav-link">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
                 <div class="right-nav-bar">
                     <ul class="nav-list-right">
                         <li class="nav-item">
                             <div class="search-container">
                                 <input type="text" id="searchInput" placeholder="Tìm truyện...">
                                 <i class="search-icon ti-search" id="searchBtn"></i>
+                                <!-- Khối hiển thị kết quả tìm kiếm nhanh -->
+                                <div id="searchResultList" class="search-result-popover">
+                                    <!-- Kết quả sẽ đổ vào đây bằng JS -->
+                                </div>
                             </div>
                         </li>
                         
@@ -47,7 +58,17 @@
                 </div>
             </div>
         </div>
-        <div id="main-content"></div>
+        <!-- Main-content -->
+        <div id="main-content">
+            <div class="container">
+                <h2 class="section-title">Truyện Mới Cập Nhật</h2>
+                <div id="storyList" class="story-grid">
+                    </div>
+            </div>
+        </div>
+        <!-- Kết thúc Main-content -->
+        
+        <!-- footer -->
         <div id="footer">
             <div class="footer-content">
                 <p class="copyright">Copyright © 2021 - Truyện Hay</p>
@@ -58,6 +79,7 @@
                 <img class="logo-footer" src="../assets/img/logo.png" alt="Truyện hay"></img>
             </div>
         </div>
+        <!-- Kết thúc footer -->
     </div>
     
     <!-- Đây là html phần đăng ký đăng nhập -->
@@ -80,5 +102,6 @@
         </div>
     </div>
     <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/stories-list.js"></script>
 </body>
 </html>
