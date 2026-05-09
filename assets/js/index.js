@@ -15,21 +15,70 @@ const userBtn = document.getElementById('userBtn');
 const userPopup = document.getElementById('userPopup');
 const userMenuList = document.getElementById('userMenuList');
 const authModal = document.getElementById('authModal');
-
+const searchResultList = document.getElementById('searchResultList');
 // ==========================================
 // 2. LOGIC HEADER & SEARCH
 // ==========================================
 
-
-// Xử lý Search Container
+// Xử lý Search Container (Đóng/Mở thanh nhập)
 searchContainer.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isActive = searchContainer.classList.contains('active');
-    if (e.target === searchBtn && isActive) {
-        searchContainer.classList.remove('active');
-    } else if (!isActive) {
+    e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài window
+    if (!searchContainer.classList.contains('active')) {
         searchContainer.classList.add('active');
         searchInput.focus();
+    }
+});
+
+// Hàm hiển thị kết quả tìm kiếm
+function displaySearchResults(results) {
+    searchResultList.innerHTML = '';
+    searchResultList.style.display = 'block';
+
+    if (results.length === 0) {
+        searchResultList.innerHTML = '<div class="search-no-result">Không tìm thấy kết quả...</div>';
+        return;
+    }
+
+    results.forEach(story => {
+        const item = document.createElement('div');
+        item.className = 'search-item';
+        item.innerHTML = `
+            <img src="${story.thumbnail}" alt="${story.title}">
+            <div class="search-item-info">
+                <div class="search-item-title">${story.title}</div>
+                <div class="search-item-meta">Chương: ${story.chapters || '??'}</div>
+            </div>
+        `;
+        
+        item.onclick = (e) => {
+            e.stopPropagation();
+            window.location.href = `detail.html?id=${story.id}`;
+        };
+        
+        searchResultList.appendChild(item);
+    });
+}
+
+// Sự kiện khi gõ phím
+searchInput.addEventListener('input', async (e) => {
+    const keyword = e.target.value.trim().toLowerCase();
+    
+    if (keyword.length === 0) {
+        searchResultList.style.display = 'none';
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/stories'); 
+        const stories = await response.json();
+
+        const filtered = stories.filter(s => 
+            s.title.toLowerCase().includes(keyword)
+        );
+
+        displaySearchResults(filtered);
+    } catch (error) {
+        console.error("Lỗi tìm kiếm:", error);
     }
 });
 
@@ -214,11 +263,18 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
 // 5. SỰ KIỆN CLICK RA NGOÀI ĐỂ ĐÓNG TẤT CẢ
 // ==========================================
 window.addEventListener('click', (e) => {
-    // Đóng Search
-    searchContainer.classList.remove('active');
-    // Đóng User Popup
-    userPopup.classList.remove('active');
-    // Đóng Modal khi click vào vùng xám bên ngoài
+    // 1. Đóng Search và bảng kết quả khi click ra ngoài vùng search-container
+    if (!searchContainer.contains(e.target)) {
+        searchContainer.classList.remove('active');
+        searchResultList.style.display = 'none';
+    }
+    
+    // 2. Đóng User Popup khi click ra ngoài vùng userBtn
+    if (!userBtn.contains(e.target)) {
+        userPopup.classList.remove('active');
+    }
+
+    // 3. Đóng Modal đăng nhập khi click vào vùng xám bên ngoài
     if (e.target === authModal) {
         closeAuthModal();
     }

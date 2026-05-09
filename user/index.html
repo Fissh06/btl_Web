@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Truyện Hay</title>
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/user/index.css">
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
@@ -19,12 +19,23 @@
                         </a>
                     </div>
                 </div>
+                <div class="center-nav-bar">
+                    <ul class="nav-main-menu">
+                        <li><a href="index.html" class="nav-link active">TRANG CHỦ</a></li>
+                        <li><a href="list.html" class="nav-link">DANH SÁCH</a></li>
+                        <li><a href="#" class="nav-link">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
                 <div class="right-nav-bar">
                     <ul class="nav-list-right">
                         <li class="nav-item">
                             <div class="search-container">
                                 <input type="text" id="searchInput" placeholder="Tìm truyện...">
                                 <i class="search-icon ti-search" id="searchBtn"></i>
+                                <!-- Khối hiển thị kết quả tìm kiếm nhanh -->
+                                <div id="searchResultList" class="search-result-popover">
+                                    <!-- Kết quả sẽ đổ vào đây bằng JS -->
+                                </div>
                             </div>
                         </li>
                         

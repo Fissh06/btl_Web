@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+.detail-container,
+.detail-thumbnail,
+.detail-information,
+.detail-img {
+    box-sizing: border-box;
+}
+/* #main-content {
+    width: 900px;
+    margin: 140px auto 0;
+    background: #fff;
+
+    overflow: hidden;
+} */
+
+
+/* Container chính chứa toàn bộ thông tin */
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Luôn ăn theo 900px của #main-content */
+    background-color: #fff;
+}
+
+/* Phần chứa ảnh phía trên */
+.detail-thumbnail {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+/* Ảnh thumbnail to toàn chiều ngang */
+.detail-img {
+    display: block;
+
+    /* QUAN TRỌNG */
+    max-width: 100%;
+    max-height: 500px;
+
+    width: auto;
+    height: auto;
+
+    margin: 0 auto;
+}
+
+/* Phần thông tin chi tiết bên dưới ảnh */
+.detail-information {
+    padding: 30px; /* Tạo khoảng cách cho chữ so với mép trắng */
+    color: #333;
+}
+
+/* Các phần con bên trong giữ nguyên logic */
+.story-name {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a1d23;
+}
+
+.story-meta {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.meta-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.meta-label {
+    font-weight: bold;
+    color: #666;
+    margin-right: 15px;
+}
+
+.detail-summary {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.detail-summary h3 {
+    margin-bottom: 15px;
+    border-left: 4px solid #6a5acd;
+    padding-left: 15px;
+}
+
+.action-btns {
+    margin-top: 30px;
+}
+
+.btn-read {
+    display: inline-block;
+    background-color: #6a5acd;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn-read:hover {
+    background-color: #5a4dbd;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
+}
+#detailImg {
+    width: 100%;
+    height: auto !important;
+    display: block;
+
+    object-fit: contain !important;
+}
