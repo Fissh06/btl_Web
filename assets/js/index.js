@@ -102,16 +102,24 @@ function renderMenu() {
     let menuHtml = "";
     if (!isLoggedIn) {
         menuHtml = `
-            <li><i class="ti-layout-grid2"></i> Xem thể loại</li>
-            <li><i class="ti-info-alt"></i> Xem chi tiết truyện</li>
-            <li><i class="ti-book"></i> Đọc thử / đọc free</li>
+            <li><a href="list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
+                <i class="ti-layout-grid2"></i> Xem thể loại
+            </a></li>
+            <li onclick="location.href='list.html?type=free'" style="cursor: pointer;">
+                <i class="ti-book"></i> Đọc thử / đọc free
+            </li>
             <li onclick="openAuthModal()"><i class="ti-key"></i> <strong>Đăng nhập / Đăng ký</strong></li>
         `;
     } else {
         menuHtml = `
             <li class="user-name-display"><i class="ti-user"></i> Chào, ${userData.username}</li>
             <li class="user-balance"><i class="ti-wallet"></i> Số dư: ${userData.balance.toLocaleString()}đ</li>
-            <li><i class="ti-heart"></i> Truyện theo dõi</li>
+            <li><a href="list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
+                <i class="ti-layout-grid2"></i> Xem thể loại
+            </a></li>
+            <li><a href="followed-list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
+            <i class="ti-heart"></i> Truyện theo dõi
+            </a></li>
             <li><i class="ti-wallet"></i> Nạp tiền</li>
             <li onclick="showTransactionHistory()"><i class="ti-exchange-vertical"></i> Lịch sử giao dịch</li>
             <li onclick="handleLogout()"><i class="ti-export"></i> Đăng xuất</li>

@@ -1,0 +1,125 @@
+/* Container chung */
+.container {
+    max-width: 1200px;
+    margin: 120px auto;
+    margin-bottom: 0px;
+    padding: 0 20px;
+    min-height: 900px;
+    background-color: #1a1a1a;
+}
+
+/* Tiêu đề "Thể loại" */
+.section-title {
+    color: #fff;
+    font-size: 34px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #6a5acd;
+    padding-left: 15px;
+}
+
+/* Bộ lọc Tag */
+.genre-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.genre-filter-item {
+    background-color: #222;
+    color: #ccc;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.genre-filter-item.active, .genre-filter-item:hover {
+    background-color: #6a5acd;
+    color: #fff;
+    border-color: #6a5acd;
+}
+
+/* Thanh tìm kiếm giữa trang */
+.list-search-box {
+    margin-bottom: 40px;
+}
+
+.search-wrapper {
+    position: relative;
+    max-width: 500px;
+}
+
+#listSearchInput {
+    width: 100%;
+    padding: 12px 40px 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #fff;
+    outline: none;
+}
+
+.search-wrapper i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6a5acd;
+}
+
+/* Lưới hiển thị truyện */
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+/* Card truyện đơn lẻ (tương tự index) */
+.story-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.story-card-info {
+    padding: 12px;
+}
+
+.story-card-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.price-filter-item {
+    background-color: #222;
+    color: #ccc;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.price-filter-item.active, .price-filter-item:hover {
+    background-color: #e74c3c; /* Màu đỏ cho khác biệt với thể loại */
+    color: #fff;
+    border-color: #e74c3c;
+}

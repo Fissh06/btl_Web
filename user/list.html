@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Truyện - Truyện Hay</title>
+    <!-- Link CSS y hệt trang chủ -->
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/user/index.css">
+    <link rel="stylesheet" href="../assets/css/user/detail.css">
+    <link rel="stylesheet" href="../assets/css/user/list.css">
+    <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div id="main">
+        <!-- HEADER (GIỮ NGUYÊN) -->
+        <div id="header">
+            <div class="nav-bar">
+                <div class="left-nav-bar">
+                    <div class="logo-web">
+                        <a href="index.html" class="logo">
+                            <img src="../assets/img/logo.png" alt="Truyện Hay">
+                        </a>
+                    </div>
+                </div>
+                <div class="center-nav-bar">
+                    <ul class="nav-main-menu">
+                        <li><a href="index.html" class="nav-link active">TRANG CHỦ</a></li>
+                        <li><a href="list.html" class="nav-link">DANH SÁCH</a></li>
+                        <li><a href="#" class="nav-link">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-bar">
+                    <ul class="nav-list-right">
+                        <li class="nav-item">
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Tìm truyện...">
+                                <i class="search-icon ti-search" id="searchBtn"></i>
+                                <!-- Khối hiển thị kết quả tìm kiếm nhanh -->
+                                <div id="searchResultList" class="search-result-popover">
+                                    <!-- Kết quả sẽ đổ vào đây bằng JS -->
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="user-container"  id="userBtn">
+                                <div class="user-avatar">
+                                    <i class="ti-user user-icon"></i>
+                                </div>
+                                <div id="userPopup" class="user-popup">
+                                    <div class="popup-header">
+                                        <span id="popupTitle">Tính Năng Tài Khoản</span>
+                                        <i class="ti-close" id="closePopup"></i>
+                                    </div>
+                                    <ul id="userMenuList" class="user-menu-list">
+                                        </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN NỘI DUNG CHÍNH (RA GIỮA 900PX) -->
+        <div id="content-list" class="container">
+            <div class="filter-section">
+                <h1 class="section-title"><i class="ti-layout-grid2"></i> THỂ LOẠI</h1>
+                <div id="genreFilterList" class="genre-filter-tags">
+                    <span class="genre-filter-item active" data-genre="all">Tất cả</span>
+                    <span class="genre-filter-item" data-genre="Phiêu lưu">Phiêu lưu</span>
+                    <span class="genre-filter-item" data-genre="Hành động">Hành động</span>
+                    <span class="genre-filter-item" data-genre="Hài hước">Hài hước</span>
+                    <span class="genre-filter-item" data-genre="Tình cảm">Tình cảm</span>
+                    <span class="price-filter-item" data-price="free">Miễn phí</span>
+                    <span class="price-filter-item" data-price="paid">Có phí</span>
+                </div>
+            </div>
+
+            <div class="list-search-box">
+                <div class="search-wrapper">
+                    <input type="text" id="listSearchInput" placeholder="Nhập tên truyện cần tìm...">
+                    <i class="ti-search"></i>
+                </div>
+            </div>
+
+            <div id="storyListContainer" class="story-grid">
+                </div>
+        </div>
+
+        <!-- FOOTER (GIỮ NGUYÊN) -->
+        <div id="footer">
+            <div class="footer-content">
+                <p class="copyright">Copyright © 2021 - Truyện Hay</p>
+                <p class="email">Email: <span class="email-address">contact@truyenhay.com</span></p>
+                <a href="#" class="privacy-policy">Privacy Policy</a>
+            </div>
+            <div class="footer-logo">
+                <img class="logo-footer" src="../assets/img/logo.png" alt="Truyện hay">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL AUTH (GIỮ NGUYÊN) -->
+    <div id="authModal" class="modal-auth">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="authTitle">Đăng Nhập</h2>
+                <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="authUser" placeholder="Tên đăng nhập">
+                <input type="password" id="authPass" placeholder="Mật khẩu">
+                <button id="btnSubmitAuth">Xác Nhận</button>
+                <p id="authSwitchText">
+                    Chưa có tài khoản? <a href="#" onclick="switchMode('register')">Đăng ký ngay</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/list.js"></script>
+</body>
+</html>

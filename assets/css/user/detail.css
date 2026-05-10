@@ -110,10 +110,74 @@
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
 }
+
+.btn-follow {
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    border: 2px solid #ff4757;
+    background: transparent;
+    color: #ff4757;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-follow:hover {
+    background: rgba(255, 71, 87, 0.1);
+}
+
+/* Trạng thái đã theo dõi */
+.btn-follow.followed {
+    background: #ff4757;
+    color: white;
+}
+
 #detailImg {
     width: 100%;
     height: auto !important;
     display: block;
 
     object-fit: contain !important;
+}
+
+/* Container chứa các tag */
+.genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+/* Định dạng từng tag thể loại */
+.genre-tag {
+    background-color: rgba(106, 90, 205, 0.1); /* Màu tím nhạt trong suốt */
+    color: #6a5acd;
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    border: 1px solid #6a5acd;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.genre-tag:hover {
+    background-color: #6a5acd;
+    color: #fff;
+}
+
+/* Chỉnh lại meta-item để hiển thị thể loại theo hàng dọc nếu nhiều tag */
+.meta-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start; /* Để nhãn "Thể loại" nằm trên cùng khi có nhiều tag */
+}
+
+.meta-label {
+    min-width: 90px; /* Độ rộng cố định cho nhãn để các giá trị thẳng hàng */
+    font-weight: bold;
+    color: #555;
 }

@@ -6,101 +6,28 @@
       "level": 1,
       "balance": 0,
       "history": [],
-      "id": "Gf_rgqlzJk0"
+      "id": "Gf_rgqlzJk0",
+      "favorites": []
     }
   ],
   "purchased": [],
   "stories": [
     {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
+      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f",
       "title": "One Piece",
       "author": "Eiichiro Oda",
       "chapters": 1114,
       "thumbnail": "../assets/img/1.png",
       "status": "Đang tiến hành",
       "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
-    },
-    {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f", 
-      "title": "One Piece",
-      "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
-      "status": "Đang tiến hành",
-      "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
-      "price": 0
+      "price": 0,
+      "genres": [
+        "Phiêu lưu",
+        "Hành động",
+        "Hài hước",
+        "Shounen"
+      ]
     }
-    ],
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

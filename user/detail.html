@@ -73,31 +73,39 @@
                     <div class="detail-information">
                         <h1 class="story-name" id="detailTitle">Đang tải tên truyện...</h1>
                         <div class="story-meta">
-                        <!-- Thêm Tác giả -->
-                        <div class="meta-item">
-                            <span class="meta-label">Tác giả:</span>
-                            <span id="detailAuthor">Đang cập nhật</span>
+                                <!-- Thêm Tác giả -->
+                                <div class="meta-item">
+                                    <span class="meta-label">Tác giả:</span>
+                                    <span id="detailAuthor">Đang cập nhật</span>
+                                </div>
+                                <!-- Thêm Số chương -->
+                                <div class="meta-item">
+                                    <span class="meta-label">Số chương:</span>
+                                    <span id="detailChapters">0</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Trạng thái:</span>
+                                    <span id="detailStatus">Đang cập nhật</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Giá:</span>
+                                    <span id="detailPrice" style="color: #6a5acd; font-weight: bold;">0đ</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Thể loại:</span>
+                                    <div id="detailGenres" class="genre-tags">
+                                        </div>
+                                </div>
                         </div>
-                        <!-- Thêm Số chương -->
-                        <div class="meta-item">
-                            <span class="meta-label">Số chương:</span>
-                            <span id="detailChapters">0</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">Trạng thái:</span>
-                            <span id="detailStatus">Đang cập nhật</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">Giá:</span>
-                            <span id="detailPrice" style="color: #6a5acd; font-weight: bold;">0đ</span>
-                        </div>
-                    </div>
                         <div class="detail-summary">
                             <h3>Tóm tắt nội dung:</h3>
                             <p id="detailDesc">Thông tin đang được cập nhật từ hệ thống...</p>
                         </div>
                         <div class="action-btns">
                             <a href="#" class="btn-read">Đọc Ngay</a>
+                            <button id="btnFollow" class="btn-follow">
+                                <i class="ti-heart"></i> <span id="followText">Theo dõi</span>
+                            </button>
                         </div>
                     </div>
                 </div>

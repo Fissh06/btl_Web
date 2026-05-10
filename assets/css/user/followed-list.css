@@ -1,0 +1,44 @@
+.empty-message {
+    text-align: center;
+    padding: 100px 20px;
+    color: #ccc;
+    grid-column: 1 / -1;
+}
+.empty-message >i {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 15px;
+    color: #bbb;
+}
+
+.empty-message p{
+    color: #ccc;
+}
+
+.btn-browse {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #6a5acd;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.empty-message a.btn-browse {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #ff4757; /* Dùng màu đỏ nổi bật */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px; /* Bo tròn hẳn cho hiện đại */
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.empty-message a.btn-browse:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.5);
+    background-color: #ff6b81;
+}
