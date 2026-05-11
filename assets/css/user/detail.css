@@ -181,3 +181,21 @@
     font-weight: bold;
     color: #555;
 }
+
+/* Nút khi cần mua truyện */
+.btn-read.buy-mode {
+    background-color: #ff9f43; /* Màu cam nổi bật */
+    border: none;
+    cursor: pointer;
+}
+
+.btn-read.buy-mode:hover {
+    background-color: #ee5253;
+}
+
+/* Hiệu ứng loading khi đang giao dịch */
+.btn-read.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+

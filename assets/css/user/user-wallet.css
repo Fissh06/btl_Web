@@ -1,0 +1,97 @@
+/* Container chính */
+.account-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 120px auto 0;
+    padding-bottom: 331px;
+    color: white;
+    line-height: 1.6; /* Tăng khoảng cách giữa các dòng văn bản chung */
+}
+
+.wallet-section, .history-section {
+    background: #1a1a1a;
+    padding: 30px; /* Tăng padding để nội dung không sát mép khung */
+    border-radius: 10px;
+}
+
+.wallet-section { flex: 1; }
+.history-section { flex: 2; }
+
+/* Tiêu đề phần */
+.wallet-section h2, .history-section h2 {
+    margin-bottom: 25px; /* Khoảng cách dưới tiêu đề lớn */
+}
+
+/* Thẻ số dư */
+.balance-card {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 30px; /* Tăng độ dày của thẻ số dư */
+    border-radius: 8px;
+    margin-bottom: 35px; /* Khoảng cách từ thẻ số dư xuống phần nạp tiền */
+}
+
+.balance-card p {
+    margin-bottom: 15px; /* Khoảng cách giữa chữ "Số dư hiện tại" và con số */
+}
+
+/* Form nạp tiền */
+.recharge-form h3 {
+    margin-bottom: 20px; /* Khoảng cách dưới chữ "Nạp tiền vào tài khoản" */
+}
+
+.recharge-form input {
+    width: 100%;
+    padding: 15px; /* Tăng độ dày ô input */
+    margin-bottom: 20px; /* Khoảng cách từ ô input xuống nút bấm */
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    padding: 10px 20px; /* Nút bấm to và dễ bấm hơn */
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.recharge-form p {
+    margin-top: 20px; /* Khoảng cách từ nút bấm xuống dòng ghi chú tối thiểu 10k */
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Bảng lịch sử */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+th, td { 
+    padding: 18px 12px; /* Tăng padding để các hàng trong bảng cách xa nhau ra */
+    text-align: left; 
+    border-bottom: 1px solid #333; 
+}
+
+.status-done { 
+    background: #27ae60; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 12px; 
+}
+
+.btn-primary {
+    display: block;      /* Cho nút nằm riêng một dòng hoặc dùng inline-block */
+    width: fit-content;  /* Độ dài vừa đủ chữ */
+    padding: 10px 25px;
+    margin-top: 20px;    /* Đẩy nút cách xa ô input phía trên */
+    margin-bottom: 10px; /* Đẩy dòng ghi chú phía dưới ra xa */
+    border: none;
+    border-radius: 5px;
+    background-color: #6e8efb;
+    color: white;
+    cursor: pointer;
+}

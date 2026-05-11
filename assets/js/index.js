@@ -83,113 +83,153 @@ searchInput.addEventListener('input', async (e) => {
 });
 
 // ==========================================
-// 3. LOGIC USER POPUP & MENU
+// 3. LOGIC USER POPUP & MENU (ĐÃ FIX LỖI CẬP NHẬT SỐ DƯ)
 // ==========================================
 
-window.handleLogout = function() {
-    localStorage.removeItem('currentUser'); // Xóa trước
-    isLoggedIn = false;
-    userData = null;
-    alert("Đã đăng xuất!");
-    window.location.replace("index.html"); // Dùng replace để ép trình duyệt xóa sạch trạng thái cũ
+// Hàm fetch dữ liệu mới nhất từ Server để đồng bộ số dư
+// ==========================================
+// 3. LOGIC USER POPUP & MENU (BẢN FIX TRIỆT ĐỂ)
+// ==========================================
+
+// Hàm đồng bộ dữ liệu: Lấy số dư và danh sách theo dõi mới nhất từ db.json
+async function syncUserData() {
+    // Chỉ chạy nếu đã đăng nhập và có ID hợp lệ
+    if (!isLoggedIn || !userData || !userData.id) return;
+
+    try {
+        const response = await fetch(`${API_URL}/${userData.id}`);
+        if (response.ok) {
+            const latestData = await response.json();
+            
+            // Cập nhật biến toàn cục và máy cục bộ
+            userData = latestData;
+            localStorage.setItem('currentUser', JSON.stringify(userData));
+            
+            // Vẽ lại menu với dữ liệu mới nhất (số dư, tên...)
+            renderMenu();
+        }
+    } catch (error) {
+        console.error("Lỗi đồng bộ từ server:", error);
+    }
 }
 
-
-
-
-
 function renderMenu() {
+    // Kiểm tra xem phần tử chứa menu có tồn tại trong HTML không
+    if (!userMenuList) return;
+
     let menuHtml = "";
-    if (!isLoggedIn) {
+    
+    // Kiểm tra trạng thái đăng nhập thực tế
+    if (!isLoggedIn || !userData) {
         menuHtml = `
             <li><a href="list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
                 <i class="ti-layout-grid2"></i> Xem thể loại
             </a></li>
             <li onclick="location.href='list.html?type=free'" style="cursor: pointer;">
-                <i class="ti-book"></i> Đọc thử / đọc free
+                <i class="ti-book"></i> Đọc free
             </li>
             <li onclick="openAuthModal()"><i class="ti-key"></i> <strong>Đăng nhập / Đăng ký</strong></li>
         `;
     } else {
+        // Đảm bảo balance và username không bị undefined bằng cách dùng giá trị mặc định
+        const balance = (userData.balance || 0).toLocaleString();
+        const name = userData.username || "Thành viên";
+
         menuHtml = `
-            <li class="user-name-display"><i class="ti-user"></i> Chào, ${userData.username}</li>
-            <li class="user-balance"><i class="ti-wallet"></i> Số dư: ${userData.balance.toLocaleString()}đ</li>
+            <li class="user-name-display"><i class="ti-user"></i> Chào, ${name}</li>
+            <li class="user-balance"><i class="ti-wallet"></i> Số dư: ${balance}đ</li>
             <li><a href="list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
                 <i class="ti-layout-grid2"></i> Xem thể loại
             </a></li>
             <li><a href="followed-list.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
-            <i class="ti-heart"></i> Truyện theo dõi
+                <i class="ti-heart"></i> Truyện theo dõi
             </a></li>
-            <li><i class="ti-wallet"></i> Nạp tiền</li>
-            <li onclick="showTransactionHistory()"><i class="ti-exchange-vertical"></i> Lịch sử giao dịch</li>
-            <li onclick="handleLogout()"><i class="ti-export"></i> Đăng xuất</li>
+            <li><a href="user-wallet.html" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                <i class="ti-wallet"></i> Nạp tiền
+            </a></li>
+            <li onclick="location.href='user-wallet.html'"><i class="ti-exchange-vertical"></i> Lịch sử giao dịch</li>
+            <li onclick="handleLogout()" style="cursor: pointer;"><i class="ti-export"></i> Đăng xuất</li>
         `;
     }
     userMenuList.innerHTML = menuHtml;
 }
-// Kiểm tra xem có user nào đang lưu trong máy không
-// Kiểm tra dữ liệu khi vừa mở trang hoặc F5
-const savedUser = localStorage.getItem('currentUser');
 
-if (savedUser) {
-    try {
-        userData = JSON.parse(savedUser);
-        isLoggedIn = true;
-        // Đợi DOM tải xong mới render menu
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMenu();
-        });
-    } catch (e) {
-        // Nếu dữ liệu bị lỗi thì xóa luôn
-        localStorage.removeItem('currentUser');
+// KHỞI TẠO KHI MỞ TRANG
+(function init() {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser && savedUser !== "undefined") {
+        try {
+            userData = JSON.parse(savedUser);
+            isLoggedIn = true;
+        } catch (e) {
+            console.error("Dữ liệu LocalStorage bị hỏng");
+            localStorage.removeItem('currentUser');
+        }
     }
-}
 
+    // Đợi DOM tải xong để render giao diện
+    document.addEventListener('DOMContentLoaded', () => {
+        renderMenu(); // Hiện menu ngay từ dữ liệu cũ cho nhanh
+        if (isLoggedIn) syncUserData(); // Sau đó mới cập nhật số dư mới từ server
+    });
+})();
+
+// SỰ KIỆN CLICK NÚT USER
 userBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    renderMenu();
+    renderMenu(); // Cập nhật giao diện trước khi mở
+    if (isLoggedIn) syncUserData(); // Đồng bộ lại số dư khi người dùng bấm vào
     userPopup.classList.toggle('active');
 });
 
-function handleLogout() {
+// HÀM ĐĂNG XUẤT
+window.handleLogout = function() {
+    localStorage.removeItem('currentUser');
     isLoggedIn = false;
     userData = null;
-    renderMenu();
-    userPopup.classList.remove('active');
-    alert("Đã đăng xuất!");
+    alert("Đã đăng xuất thành công!");
+    window.location.replace("index.html");
 }
-
 // ==========================================
-// 4. LOGIC MODAL ĐĂNG NHẬP / ĐĂNG KÝ (API)
+// 4. LOGIC MODAL ĐĂNG NHẬP / ĐĂNG KÝ (ĐÃ FIX LỖI INPUT)
 // ==========================================
 
 function openAuthModal() {
-    // 1. Lấy phần tử trực tiếp khi hàm được gọi
     const modal = document.getElementById('authModal');
     const popup = document.getElementById('userPopup');
 
-    // 2. Kiểm tra nếu tìm thấy modal thì mới thực hiện tiếp
     if (modal) {
-        modal.style.display = 'flex'; // Hiện cửa sổ Đăng nhập/Đăng ký
+        modal.style.display = 'flex';
+        if (popup) popup.classList.remove('active');
         
-        if (popup) {
-            popup.classList.remove('active'); // Đóng cái popup nhỏ đi
-        }
-        
-        switchMode('login'); // Đảm bảo luôn hiện form đăng nhập trước
-        console.log("Đã mở cửa sổ đăng nhập thành công!");
-    } else {
-        console.error("Lỗi: Không tìm thấy thẻ có ID là 'authModal' trong HTML.");
+        // Luôn xóa trắng form và đưa về chế độ login khi mở modal
+        clearAuthInputs();
+        switchMode('login'); 
     }
 }
 
 function closeAuthModal() {
-    authModal.style.display = 'none';
+    const modal = document.getElementById('authModal');
+    if (modal) {
+        modal.style.display = 'none';
+        clearAuthInputs(); // Xóa dữ liệu khi đóng để lần sau mở ra form trắng
+    }
+}
+
+// Hàm bổ trợ để xóa trắng các ô nhập liệu
+function clearAuthInputs() {
+    const userInput = document.getElementById('authUser');
+    const passInput = document.getElementById('authPass');
+    if (userInput) userInput.value = "";
+    if (passInput) passInput.value = "";
 }
 
 function switchMode(mode) {
     const authTitle = document.getElementById('authTitle');
     const authSwitchText = document.getElementById('authSwitchText');
+
+    // Xóa trắng input mỗi khi bấm chuyển giữa Đăng ký <-> Đăng nhập
+    clearAuthInputs();
 
     if (mode === 'register') {
         isRegisterMode = true;
@@ -212,9 +252,9 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
     }
 
     try {
-        if (isRegisterMode === true) {
+        if (isRegisterMode) {
             // --- XỬ LÝ ĐĂNG KÝ ---
-            const resCheck = await fetch(API_URL + "?username=" + username);
+            const resCheck = await fetch(`${API_URL}?username=${username}`);
             const listUsers = await resCheck.json();
 
             if (listUsers.length > 0) {
@@ -225,7 +265,9 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
                     password, 
                     level: 1, 
                     balance: 0,
-                    history: [] };
+                    history: [],
+                    favorites: [] // Thêm mảng rỗng để tránh lỗi "Truyện theo dõi" bị trống
+                };
                 const resSave = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -234,7 +276,7 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
 
                 if (resSave.ok) {
                     alert("Đăng ký thành công! Hãy đăng nhập.");
-                    switchMode('login');
+                    switchMode('login'); // Tự động xóa form và chuyển sang Login
                 }
             }
         } else {
@@ -242,7 +284,6 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
             const response = await fetch(API_URL);
             const allUsers = await response.json();
 
-            // Tìm user trong danh sách trả về
             const foundUser = allUsers.find(u => 
                 u.username === username && u.password === password
             );
@@ -252,21 +293,22 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
                 isLoggedIn = true;
                 userData = foundUser; 
 
-                renderMenu();       
-                closeAuthModal();   
-                
                 localStorage.setItem('currentUser', JSON.stringify(userData));
-                console.log("Đã đăng nhập thành công:", userData);
+                
+                // Nếu trang web có hàm renderMenu và syncUserData thì gọi ở đây
+                if (typeof renderMenu === 'function') renderMenu();
+                if (typeof syncUserData === 'function') syncUserData();
+                
+                closeAuthModal();
             } else {
                 alert("Sai tài khoản hoặc mật khẩu!");
             }
         }
     } catch (error) {
         console.error("Lỗi hệ thống:", error);
-        alert("Lỗi kết nối Server! Bạn đã bật json-server chưa?");
+        alert("Lỗi kết nối Server!");
     }
 });
-
 // ==========================================
 // 5. SỰ KIỆN CLICK RA NGOÀI ĐỂ ĐÓNG TẤT CẢ
 // ==========================================

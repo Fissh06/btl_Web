@@ -4,30 +4,137 @@
       "username": "nam",
       "password": "123456",
       "level": 1,
-      "balance": 0,
-      "history": [],
+      "balance": 49000,
+      "history": [
+        {
+          "id": 1778513783541,
+          "date": "22:36:23 11/5/2026",
+          "content": "Nạp tiền vào tài khoản",
+          "amount": 10000
+        }
+      ],
       "id": "Gf_rgqlzJk0",
-      "favorites": []
+      "favorites": [
+        "1"
+      ],
+      "purchasedStories": [
+        "2",
+        "3"
+      ]
     }
   ],
   "purchased": [],
   "stories": [
     {
-      "id": "a1c7c817-4e59-43b7-9365-09675a149a6f",
+      "id": "1",
       "title": "One Piece",
       "author": "Eiichiro Oda",
-      "chapters": 1114,
-      "thumbnail": "../assets/img/1.png",
+      "chapters": 2,
+      "thumbnail": "../assets/img/one-piece-thumbnail.png",
       "status": "Đang tiến hành",
       "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
       "price": 0,
-      "genres": [
-        "Phiêu lưu",
-        "Hành động",
-        "Hài hước",
-        "Shounen"
-      ]
-    }
+      "genres": [ "Phiêu lưu", "Hành động", "Hài hước", "Shounen"]
+    },
+  {
+    "id": "2",
+    "title": "Solo Leveling",
+    "author": "Chugong",
+    "chapters": 2,
+    "status": "Đang tiến hành",
+    "thumbnail": "../assets/img/solo-leveling-thumbnail.jpg",
+    "description": "Trong một thế giới nơi các thợ săn sở hữu sức mạnh ma thuật, Sung Jin-Woo - thợ săn yếu nhất nhân loại - đã nhận được một hệ thống bí ẩn giúp anh thăng cấp không giới hạn.",
+    "price": 15000,
+    "genres": ["Hành động", "Phiêu lưu", "Fantasy", "Hệ thống"]
+  },
+  {
+    "id": "3",
+    "title": "Dragon Ball",
+    "author": "Akira Toriyama",
+    "chapters": 2,
+    "status": "Đang tiến hành",
+    "thumbnail": "../assets/img/dragon-ball-thumbnail.jpg",
+    "description": "Cuộc hành trình của cậu bé đuôi khỉ Son Goku từ lúc nhỏ cho đến khi trưởng thành, tầm sư học đạo và cùng bạn bè tìm kiếm những viên ngọc rồng thiêng để bảo vệ Trái Đất.",
+    "price": 0,
+    "genres": ["Hành động", "Phiêu lưu", "Hài hước", "Shounen"]
+  },
+  {
+    "id": "4",
+    "title": "Bleach",
+    "author": "Tite Kubo",
+    "chapters": 2,
+    "status": "Hoàn thành",
+    "thumbnail": "../assets/img/bleach-thumbnail.jpg",
+    "description": "Kurosaki Ichigo là một thiếu niên có khả năng nhìn thấy linh hồn. Cuộc đời anh thay đổi khi gặp gỡ Rukia Kuchiki - một Thần Chết và nhận lấy sức mạnh của cô để bảo vệ con người khỏi các Hollow.",
+    "price": 10000,
+    "genres": ["Hành động", "Siêu nhiên", "Shounen"]
+  },
+  {
+    "id": "5",
+    "title": "Fairy Tail",
+    "author": "Hiro Mashima",
+    "chapters": 2,
+    "status": "Hoàn thành",
+    "thumbnail": "../assets/img/fairy-tail-thumbnail.jpg",
+    "description": "Câu chuyện xoay quanh Lucy Heartfilia, một pháp sư trẻ tuổi tham gia vào hội pháp sư nổi tiếng Fairy Tail và cùng Natsu Dragneel thực hiện những nhiệm vụ đầy nguy hiểm.",
+    "price": 5000,
+    "genres": ["Phiêu lưu", "Hành động", "Fantasy", "Pháp thuật"]
+  },
+  {
+    "id": "6",
+    "title": "Kimetsu no Yaiba",
+    "author": "Koyoharu Gotouge",
+    "chapters": 2,
+    "status": "Hoàn thành",
+    "thumbnail": "../assets/img/KNY-thumbnail.png",
+    "description": "Sau khi gia đình bị quỷ sát hại và em gái biến thành quỷ, Tanjiro Kamado bắt đầu hành trình trở thành thợ săn quỷ để tìm cách đưa em gái trở lại thành người.",
+    "price": 12000,
+    "genres": ["Hành động", "Siêu nhiên", "Lịch sử", "Shounen"]
+  },
+  {
+    "id": "7",
+    "title": "Detective Conan",
+    "author": "Gosho Aoyama",
+    "chapters": 2,
+    "status": "Đang tiến hành",
+    "thumbnail": "../assets/img/conan-thumbnail.jpg",
+    "description": "Kudo Shinichi, một thám tử trung học tài ba, bị một tổ chức bí ẩn ép uống thuốc độc khiến cơ thể bị thu nhỏ thành học sinh tiểu học. Anh lấy tên là Edogawa Conan để bí mật điều tra.",
+    "price": 0,
+    "genres": ["Trinh thám", "Hành động", "Hài hước", "Học đường"]
+  },
+  {
+    "id": "8",
+    "title": "Naruto",
+    "author": "Masashi Kishimoto",
+    "chapters": 2,
+    "thumbnail": "../assets/img/naruto.thumbnail.jpg",
+    "status": "Đang tiến hành",
+    "description": "Naruto là một ninja trẻ luôn bị dân làng hắt hủi vì mang trong mình phong ấn của Cửu Vĩ. Cậu luôn nỗ lực tập luyện với ước mơ trở thành Hokage để được mọi người công nhận.",
+    "price": 0,
+    "genres": ["Hành động", "Phiêu lưu", "Shounen", "Pháp thuật"]
+  },
+  {
+    "id": "9",
+    "title": "Black Clover",
+    "author": "Yūki Tabata",
+    "chapters": 2,
+    "thumbnail": "../assets/img/black-clover-thumbnail.jpg",
+    "status": "Đang tiến hành",
+    "description": "Trong một thế giới mà pháp thuật là tất cả, Asta là người duy nhất sinh ra không có ma lực. Cậu nỗ lực để trở thành Ma Pháp Vương bằng sức mạnh của sự phản ma pháp.",
+    "price": 8000,
+    "genres": ["Hành động", "Hài hước", "Fantasy", "Shounen"]
+  },
+  {
+    "id": "10",
+    "title": "The Greatest Estate Developer",
+    "author": "BK_Moon",
+    "chapters": 2,
+    "thumbnail": "../assets/img/GOAT-thumbnail.jpg",
+    "status": "Hoàn thành",
+    "description": "Kim Suho, một sinh viên ngành kỹ thuật dân dụng, xuyên không vào thân xác của một thiếu gia ăn chơi nợ nần. Anh quyết định dùng kiến thức xây dựng của mình để vực dậy lãnh địa.",
+    "price": 20000,
+    "genres": ["Hài hước", "Fantasy", "Xuyên không", "Xây dựng"]
+  }
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
