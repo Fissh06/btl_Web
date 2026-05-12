@@ -34,7 +34,15 @@
       "status": "Đang tiến hành",
       "description": "Câu chuyện về cuộc hành trình của Monkey D. Luffy và đồng đội để tìm kiếm kho báu huyền thoại One Piece.",
       "price": 0,
-      "genres": [ "Phiêu lưu", "Hành động", "Hài hước", "Shounen"]
+      "genres": [ "Phiêu lưu", "Hành động", "Hài hước", "Shounen"],
+      "content":[
+        {"chapter": 1,
+          "images":[
+            "../assets/img/One-piece-thumbnail.png",
+            "../assets/img/logo.png",
+            "../assets/img/logo.png"
+          ]}
+      ]
     },
   {
     "id": "2",
@@ -78,7 +86,7 @@
     "thumbnail": "../assets/img/fairy-tail-thumbnail.jpg",
     "description": "Câu chuyện xoay quanh Lucy Heartfilia, một pháp sư trẻ tuổi tham gia vào hội pháp sư nổi tiếng Fairy Tail và cùng Natsu Dragneel thực hiện những nhiệm vụ đầy nguy hiểm.",
     "price": 5000,
-    "genres": ["Phiêu lưu", "Hành động", "Fantasy", "Pháp thuật"]
+    "genres": ["Phiêu lưu", "Hành động", "Fantasy"]
   },
   {
     "id": "6",
@@ -89,7 +97,7 @@
     "thumbnail": "../assets/img/KNY-thumbnail.png",
     "description": "Sau khi gia đình bị quỷ sát hại và em gái biến thành quỷ, Tanjiro Kamado bắt đầu hành trình trở thành thợ săn quỷ để tìm cách đưa em gái trở lại thành người.",
     "price": 12000,
-    "genres": ["Hành động", "Siêu nhiên", "Lịch sử", "Shounen"]
+    "genres": ["Hành động", "Siêu nhiên", "Shounen"]
   },
   {
     "id": "7",
@@ -100,7 +108,7 @@
     "thumbnail": "../assets/img/conan-thumbnail.jpg",
     "description": "Kudo Shinichi, một thám tử trung học tài ba, bị một tổ chức bí ẩn ép uống thuốc độc khiến cơ thể bị thu nhỏ thành học sinh tiểu học. Anh lấy tên là Edogawa Conan để bí mật điều tra.",
     "price": 0,
-    "genres": ["Trinh thám", "Hành động", "Hài hước", "Học đường"]
+    "genres": ["Trinh thám", "Hành động", "Hài hước"]
   },
   {
     "id": "8",
@@ -111,7 +119,7 @@
     "status": "Đang tiến hành",
     "description": "Naruto là một ninja trẻ luôn bị dân làng hắt hủi vì mang trong mình phong ấn của Cửu Vĩ. Cậu luôn nỗ lực tập luyện với ước mơ trở thành Hokage để được mọi người công nhận.",
     "price": 0,
-    "genres": ["Hành động", "Phiêu lưu", "Shounen", "Pháp thuật"]
+    "genres": ["Hành động", "Phiêu lưu", "Shounen"]
   },
   {
     "id": "9",
@@ -133,7 +141,7 @@
     "status": "Hoàn thành",
     "description": "Kim Suho, một sinh viên ngành kỹ thuật dân dụng, xuyên không vào thân xác của một thiếu gia ăn chơi nợ nần. Anh quyết định dùng kiến thức xây dựng của mình để vực dậy lãnh địa.",
     "price": 20000,
-    "genres": ["Hài hước", "Fantasy", "Xuyên không", "Xây dựng"]
+    "genres": ["Hài hước", "Fantasy", "Xuyên không"]
   }
   ],
   "$schema": "./node_modules/json-server/schema.json"

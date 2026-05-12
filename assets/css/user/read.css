@@ -1,0 +1,71 @@
+.read-container {
+    max-width: 800px; /* Độ rộng tối ưu để đọc trên PC */
+    margin: 0 auto;
+    background: #111;
+    border-radius: 0 !important;
+}
+
+/* Nếu là ảnh trong trang đọc truyện */
+.chapter-images img {
+    width: 100%;
+    display: block;
+    overflow: visible; /* Cho phép nội dung tràn ra nếu cần, tránh bị cắt góc */
+}
+
+
+.read-control {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    background: #1a1a1a;
+    position: sticky; /* Giữ thanh điều hướng khi cuộn */
+    top: 0;
+    z-index: 100;
+}
+
+/* Style chung cho tất cả nút bấm trong trang đọc */
+.read-control button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* Bo tròn kiểu viên thuốc */
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+    background: linear-gradient(135deg, #ff416c, #ff4b2b); /* Màu gradient nổi bật */
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+    outline: none;
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+.read-control button:hover {
+    transform: translateY(-2px); /* Nhấc nút lên nhẹ */
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Khi bấm vào */
+.read-control button:active {
+    transform: translateY(0);
+}
+
+/* Tùy chỉnh riêng cho select box chương */
+.read-control select {
+    padding: 10px 15px;
+    background: #222;
+    color: #fff;
+    border: 2px solid #ff4b2b;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Nút ở phía dưới có thể làm to hơn để dễ bấm trên điện thoại */
+.read-control.bottom button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    min-width: 150px;
+}

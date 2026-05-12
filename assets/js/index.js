@@ -329,3 +329,28 @@ window.addEventListener('click', (e) => {
         closeAuthModal();
     }
 });
+
+// ==========================================
+// 6. Đổi màu Dark/Light cho body
+// ==========================================
+
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Kiểm tra trạng thái đã lưu trong LocalStorage chưa
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'light') {
+    body.classList.add('light-mode');
+}
+
+themeToggle.addEventListener('click', () => {
+    // Toggle class
+    body.classList.toggle('light-mode');
+    
+    // Lưu trạng thái vào LocalStorage để khi load lại trang không bị mất
+    if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+});
