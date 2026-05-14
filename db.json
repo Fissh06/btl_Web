@@ -5,42 +5,6 @@
       "password": "admin",
       "role": "admin",
       "id": "5jkXrVno_KY"
-    },
-    {
-      "username": "nam",
-      "password": "123456",
-      "balance": 985000,
-      "role": "user",
-      "purchasedStories": [
-        "2"
-      ],
-      "id": "ygHqIGlobnk",
-      "favorites": []
-    },
-    {
-      "username": "đức ngô",
-      "password": "123456",
-      "role": "user",
-      "balance": 100001101111,
-      "history": [
-        {
-          "id": 1778772646586,
-          "date": "22:30:46 14/5/2026",
-          "content": "Nạp tiền vào tài khoản",
-          "amount": 1111111
-        },
-        {
-          "id": 1778772846386,
-          "date": "22:34:06 14/5/2026",
-          "content": "Mua truyện: Bleach",
-          "amount": 10000
-        }
-      ],
-      "favorites": [],
-      "id": "CLnjoL5lWk8",
-      "purchasedStories": [
-        "4"
-      ]
     }
   ],
   "purchased": [],
