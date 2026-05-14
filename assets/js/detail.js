@@ -98,25 +98,49 @@ async function handlePurchase(story, btnElement) {
         return;
     }
 
-    if (confirm(`Mua "${story.title}"?`)) {
+    if (confirm(`Mua "${story.title}" với giá ${story.price.toLocaleString()}đ?`)) {
+        // 1. Cập nhật danh sách truyện đã mua và số dư
         user.purchasedStories = user.purchasedStories || [];
         user.purchasedStories.push(story.id);
         user.balance -= story.price;
 
+        // 2. TẠO DỮ LIỆU LỊCH SỬ GIAO DỊCH MỚI
+        const now = new Date();
+        const newHistoryItem = {
+            id: Date.now(), // Dùng timestamp làm ID duy nhất cho giao dịch
+            date: `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')} ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`,
+            content: `Mua truyện: ${story.title}`,
+            amount: story.price // Đây là số tiền trừ
+        };
+
+        // 3. Đẩy vào mảng history của user
+        user.history = user.history || [];
+        user.history.push(newHistoryItem);
+
         try {
+            // 4. Gửi yêu cầu cập nhật lên server
             const res = await fetch(`http://localhost:3000/users/${user.id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     purchasedStories: user.purchasedStories,
-                    balance: user.balance 
+                    balance: user.balance,
+                    history: user.history // Cập nhật mảng history mới lên server
                 })
             });
+
             if (res.ok) {
+                // Cập nhật lại localStorage để các trang khác nhận dữ liệu mới
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                alert("Mua truyện thành công!");
                 location.reload();
+            } else {
+                alert("Có lỗi xảy ra khi cập nhật server.");
             }
-        } catch (err) { alert("Lỗi kết nối server!"); }
+        } catch (err) { 
+            console.error(err);
+            alert("Lỗi kết nối server!"); 
+        }
     }
 }
 

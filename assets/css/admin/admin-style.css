@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+/* Sidebar phong cách W3Schools */
+.admin-sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #1a252f;
+}
+
+.menu-title {
+    padding: 15px 20px 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #95a5a6;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu-item i { margin-right: 10px; width: 20px; }
+
+.menu-item:hover, .menu-item.active {
+    background-color: #34495e;
+    color: #4CAF50; /* Màu nhấn kiểu W3Schools */
+    border-left: 4px solid #4CAF50;
+}
+
+/* Cột phải nội dung */
+.admin-main {
+    margin-left: 250px; /* Bằng độ rộng sidebar */
+    width: calc(100% - 250px);
+    min-height: 100vh;
+}
+
+.admin-header {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.admin-user-info { display: flex; align-items: center; gap: 10px; }
+.admin-user-info img { width: 35px; border-radius: 50%; }
+
+.content-body {
+    padding: 30px;
+}
+
+/* Style cho bảng (Table) trong nội dung */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th { background-color: #4CAF50; color: white; }
+tr:hover { background-color: #f1f1f1; }
+
+/* Phần CSS của quản lý truyện */
+.admin-form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-save { background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+.btn-cancel { background: #e74c3c; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+.btn-save:hover { background: #45a049; }
+

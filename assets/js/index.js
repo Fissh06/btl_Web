@@ -262,8 +262,8 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
             } else {
                 const newUser = { 
                     username,
-                    password, 
-                    level: 1, 
+                    password,
+                    role: "user",  
                     balance: 0,
                     history: [],
                     favorites: [] // Thêm mảng rỗng để tránh lỗi "Truyện theo dõi" bị trống
@@ -295,11 +295,19 @@ document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
 
                 localStorage.setItem('currentUser', JSON.stringify(userData));
                 
-                // Nếu trang web có hàm renderMenu và syncUserData thì gọi ở đây
                 if (typeof renderMenu === 'function') renderMenu();
                 if (typeof syncUserData === 'function') syncUserData();
                 
                 closeAuthModal();
+
+                // --- LOGIC CHUYỂN HƯỚNG MỚI ---
+                if (foundUser.role === "admin") {
+                    window.location.href = "../admin/admin.html"; // Nếu là admin thì vào trang quản trị
+                } else {
+                    // Nếu đã ở index.html rồi thì không cần chuyển, 
+                    // nhưng nếu bạn muốn chắc chắn hoặc đang ở trang khác:
+                    window.location.href = "index.html"; 
+                }
             } else {
                 alert("Sai tài khoản hoặc mật khẩu!");
             }

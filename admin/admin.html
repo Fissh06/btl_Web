@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Truyện Hay</title>
+    
+    <!-- CSS (Sử dụng đường dẫn ../ để ra ngoài vào assets) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css//admin/admin-style.css">
+
+    <!-- Kiểm tra bảo mật (Admin mới được vào) -->
+    <script>
+        (function checkAdmin() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (!user || user.role !== 'admin') {
+                alert("Bạn không có quyền truy cập!");
+                window.location.replace("../user/index.html");
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Sidebar (Cột trái) -->
+    <div class="admin-sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-user-shield"></i> ADMIN PANEL
+        </div>
+        <div class="sidebar-menu">
+            <h3 class="menu-title">Quản lý nội dung</h3>
+            <a href="#" class="menu-item" onclick="loadContent('stories', this)"><i class="fa-solid fa-book"></i> Quản lý truyện</a>
+            <a href="#" class="menu-item" onclick="loadContent('categories', this)"><i class="fa-solid fa-list"></i> Quản lý danh mục</a>
+            
+            <h3 class="menu-title">Hệ thống</h3>
+            <a href="#" class="menu-item" onclick="loadContent('users', this)"><i class="fa-solid fa-users"></i> Quản lý tài khoản</a>
+            <a href="#" class="menu-item" onclick="loadContent('orders', this)"><i class="fa-solid fa-cart-shopping"></i> Quản lý đơn hàng</a>
+            
+            <hr>
+                <!-- Nút quay lại kèm đăng xuất -->
+                <a href="#" class="menu-item logout-btn" onclick="handleAdminLogout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất & Quay lại
+                </a>
+        </div>
+    </div>
+
+    <!-- Main Content (Cột phải) -->
+    <div class="admin-main">
+        <div class="admin-header">
+            <h2 id="current-title">Quản lý truyện</h2>
+            <div class="admin-user-info">
+                <span>Chào, Admin</span>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=random" alt="Avatar">
+            </div>
+        </div>
+
+        <div id="content-area" class="content-body">
+            <!-- Nội dung các chức năng sẽ được load vào đây -->
+            <p>Đang tải nội dung...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js//admin/admin-stories.js"></script>
+    <script src="../assets/js/admin/admin-categories.js"></script>
+    <script src="../assets/js//admin/admin-users.js"></script>
+    <script src="../assets/js/admin/admin-orders.js"></script>
+    <script src="../assets/js//admin/admin.js"></script>
+</body>
+</html>
